@@ -1,0 +1,10 @@
+<%= form_for ([@blog,@blog.comments.build]) do |f| %>
+    <p>
+       <%= f.label :body %> 
+       <%= f.text_field :body %>
+    </p><br>
+    <%= f.number_field :user_id, value: current_user.id, type: :hidden%>
+    <p>
+       <pre><button><%= f.submit %></button>                       </pre>
+    </p>
+<% end %>

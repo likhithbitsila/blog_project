@@ -1,0 +1,16 @@
+
+    <% if user_signed_in? %>
+        <%= render "home"%>
+    <% else %>
+    <div style="height:60% ;width:100%; background-image:url(https://thumbs.dreamstime.com/z/blog-woodn-dice-depicting-letters-stack-newspapers-leaning-dice-34801080.jpg?w=1200);background-position:center; background-size:cover;">
+        <div style="margin-left:40px">
+            <h1 style="margin:30px 0px 40px 50px">Please Log-in or Sign-up to continue...</h1>
+            <div id="index-but">
+                <h1 style="margin:40px 0px 40px 50px;"> <%= button_to "Log in" , new_user_session_path  %></h1>  
+                <h1 style="margin-bottom:450px; margin-left:50px;"> <%= button_to "Sign up" , new_user_registration_path ,method: :get %></h1>
+            </div>
+        </div>
+    </div> 
+    <% end %>
+
+  

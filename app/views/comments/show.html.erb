@@ -1,0 +1,48 @@
+<div class="for_home" >
+   
+    <%= button_to "Add New Blog" , new_blog_path , method: :get  %>
+    <%= button_to "Home" , root_path , method: :get %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+</div><br>
+<br>
+<br>
+<h2 style="margin-top:50px; margin-bottom:20px;"><u><%= @blog.comments.count %> Comments </u></h2>
+    
+
+
+<div style="width: 600px; padding: 10px; align-items:center; display:flex;" >
+    <table style="width: 700px; padding: 50px; overflow-y:scroll" >
+    
+    <%allcomm = Comment.where(blog_id: params[:blog_id]) %>
+    <% allcomm.each do |x| %>
+    
+        <tr>
+            <% if x.user_id == current_user.id %>
+                <form method="post" action="/anilc">
+                    <input value="<%= x.id %>" name="param1" style="display:none;">
+                    <td><%= x.body %></td>         
+                    <td><%= time_ago_in_words(x.created_at) %> ago </td>             
+                    <td><button type="submit">delete</button></td>
+                </form> 
+            <% else %>
+                    <td><%= x.body %></td>         
+                    <td><%= time_ago_in_words(x.created_at) %> ago </td>             
+             
+            <% end %>
+        </tr>
+
+    <% end %>
+    </table>
+</div>
+
+
+<div style="margin-top:10px;">
+    <h3>Add comments: </h3>
+    <%= render "comments/form" %>
+</div>
+
+
+
+
+
+

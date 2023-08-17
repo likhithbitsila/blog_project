@@ -1,0 +1,48 @@
+<div class="for_home">
+    <%= button_to "Add New Blog" , new_blog_path , method: :get  %>
+    <%= button_to "Home" , root_path , method: :get %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
+<h1 style="margin-top:100px;"><strong>Showing Blog Details</strong></h1>
+
+<div class="showdiv">
+    <h3>Author's Name:  <em><%= @blog.author %></em></h3>
+    <br>
+    <h3>Authors Email:  <em><%= @blog.authors_email %></em></h3>
+    <br>
+    <h3>Blog Title: <em><%= @blog.title %></em></h3>
+    <br>
+    <h3>Blog Description: <em><%= @blog.desciption %></em></h3>
+    <br>
+    <h3>Pages: <em><%= @blog.pages %></em></h3>
+    <br>
+    <h3>Blog Release Date: <em><%= @blog.release_date %></em></h3>
+    <br>
+    <form method="post" action="/like"><input value="<%= @blog.id%>" name="param1" style="display:none;">
+    <form method="post" action="/mylike"><input value="<%= @blog.id%>" name="param1" style="display:none;">
+    <% if @ul %>
+        <% if @ul.ref_id == 0 %>
+            <% a= "Like" %>
+        <% else %>
+            <% a = "Unlike" %>
+        <% end %>
+            <button type="submit"><%= a %></button></form> <%= @total_likes.size %>
+            
+    <% else %>
+        <button type="submit">Like</button></form> 
+        <%= @total_likes.size %>
+
+    <% end %>
+    <%= (@total_likes.size <= 1)? "Like" : "Likes"  %> 
+    <br>
+    <button class="addnewblock"><%=link_to "show comments" , commentshow_path(blog_id:@blog.id) %></button>
+        
+    <br>
+   
+</div>
+        
+
+
+
+
+       

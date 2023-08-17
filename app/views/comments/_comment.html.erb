@@ -1,0 +1,10 @@
+<div style="hieght:20px; min-width:40%; text-align:center; display:flex; justify-content:space-between; flex-wrap:wrap; ">
+<div style="" ><h4><%= comment.body %><h4></div>
+<br>
+<br>
+<p><%= time_ago_in_words(comment.created_at) %> ago<p>
+
+
+    <%=button_to "delete" , [comment.blog,comment], method: :delete, data:{turbo_confirm: "are you sure"} %>
+</div>
+

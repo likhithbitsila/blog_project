@@ -1,0 +1,53 @@
+<div class="maindiv">
+<div class="maindiv2">
+<%= form_with model: @blog do |form| %>
+  <% if @blog.errors.any? %>
+      <% @blog.errors.full_messages.each do |message|%>
+         <p style="color: red;"><%= message %><p>
+      <% end %>
+  <% end  %>
+
+  <div>
+    <%= form.label :author, style: "display: block" %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.label :authors_email, style: "display: block" %>
+    <%= form.email_field :authors_email %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :desciption, style: "display: block" %>
+    <%= form.text_area :desciption %>
+  </div>
+
+  <div>
+    <%= form.label :pages, style: "display: block" %>
+    <%= form.text_field :pages %>
+  </div>
+
+  <div>
+    <%= form.label :release_date, style: "display: block" %>
+    <%= form.date_field :release_date %>
+  </div>
+
+   <div>
+    <% form.label :user_id, id: :user_id , type: :hidden %>
+    <% current_user.id %>
+    <input value="<%= current_user.id%>" name="blog[user_id]" style="display:none">
+  </div>
+
+<br>
+  <div>
+    <button><%= form.submit %></button>
+  </div>
+<% end %>
+</div>
+
+</div>

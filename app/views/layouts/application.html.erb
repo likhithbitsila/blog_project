@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style>
+      *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+       
+        
+      }
+
+      html{
+        @import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@500&display=swap');
+        font-family: 'Ysabeau SC', sans-serif;
+
+      }
+
+      em{
+        background-color: rgb(146, 187, 228);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      body{
+        min-height:110vh;
+        width: 100%;
+        background-image:url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) ;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        
+      } 
+
+      /* a:visited{
+        color:brown;
+      }
+      a:link{
+        color: green;
+      }
+      a:active{
+        color: rgb(1, 26, 1)
+      }
+      a:hover{
+        color: rgb(233, 164, 17);
+        font-size: 20px;
+     
+      } */
+      button{
+        background-color: transparent;
+      }
+
+      table{
+        height: 50vh;
+        width: 70%;
+        align-content: center;
+        box-shadow: 0 0 30px black;
+      }
+
+      .row{
+        text-align: center;
+      }
+
+      #div{
+        height: auto;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+
+      .maindiv{
+        height: 50vh;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .maindiv2{
+        height:auto ;
+        min-width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 0 30px rgb(46, 46, 46);
+        border-radius: 16px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        padding: 20px ;
+      }
+
+      input{
+        border: none;
+        border-bottom: 2px solid brown;
+        background-color: transparent;
+      }
+
+      input:focus{
+        outline: none;
+      }
+
+      .for_home{
+        height: 10vh;
+        width: 100%;
+        display:flex;
+        justify-content:space-around;
+        background-image:url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) ;
+        background-size: 100%;
+        align-items: center;
+        box-shadow: 0 0 70px rgb(2, 2, 2);
+        position: fixed;
+        top:0px ;
+      }
+
+      
+
+      .for_home button{
+        height:40px; 
+        width:auto; 
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius:20px;
+        font-size: 15px;
+        font-weight:bolder;
+      }
+
+
+      #index-but button{
+        height:40px; 
+        width:100px; 
+        border-radius:20px;
+        font-size: 20px;
+      }
+
+      .btn{
+        margin-bottom: 10px;
+      }
+      
+      .showdiv{
+        box-shadow: 0 0 30px rgb(30, 29, 29);
+        margin-top: 50px;
+        margin-bottom: 60px;
+        border-radius:10px;
+        padding: 20px ;
+        min-height: fit-content;
+        min-width: fit-content;
+      }
+
+      .login_button{
+        margin-top:100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      ::placeholder{
+        color: black;
+        font-size: 15px;
+      }
+
+      .addnewblock a{
+        color: black;
+      }
+
+      .field>input{
+        background-color: transparent;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div id="div">
+      
+      <%= yield %>
+      <br>
+
+    </div>
+    
+  </body>
+</html>

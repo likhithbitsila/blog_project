@@ -1,0 +1,11 @@
+<div class="for_home">
+    <%= button_to "Add New Blog" , new_blog_path , method: :get  %>
+    <%= button_to "Home" , root_path , method: :get %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
+
+<h1 style="margin-top:100px; margin-bottom:30px;" ><strong>My Liked Blogs</strong></h1>
+
+<% @mylike.each do|i| %>
+ <a style="margin-bottom:10px; font-size:20px;" href="blogs/<%= i.id%>"><%= i.title%></a>
+<% end %>

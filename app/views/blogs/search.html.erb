@@ -1,0 +1,13 @@
+<div class="for_home">
+    <%= button_to "Add New Blog" , new_blog_path, method: :get  %>
+    <%= button_to "Home" , root_path, method: :get %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
+<h1 style="margin:100px 0px 50px 0;"><u>Search Results</u></h1>
+<% @blog.each do |i| %>
+ <a style="margin-bottom:10px; font-size:20px;" href="blogs/<%= i.id%>"><%= i.title%></a>
+<% end %>
+
+<% if @blog.size==0 %>
+    <h1 style="width:500px; margin-top:100px;"><i><marquee behavior="alternate" >no blogs available</marquee></i></h1>
+<% end %>
