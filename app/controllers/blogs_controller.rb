@@ -18,9 +18,11 @@ class BlogsController < ApplicationController
   end
 
   def index
-    
-    @blog = Blog.all.order(params[:filter])    
-
+    if params[:filter].nil?
+      @blog = Blog.all
+    else
+      @blog = Blog.where(category: params[:filter])    
+    end
     @a = User.all
 
   end
@@ -45,7 +47,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.title = @blog.title.capitalize
-    @blog.author = @blog.title.capitalize
+    @blog.author = @blog.author.capitalize
 
       if @blog.save
           redirect_to blogs_path, notice: "new voter has been added successfully"
@@ -60,7 +62,7 @@ class BlogsController < ApplicationController
   def update
     if user_signed_in?
       if @blog.update(blog_params)
-        redirect_to blogs_path , notice: "new voter has been edited successfully"
+        redirect_to my_blog_path , notice: "new voter has been edited successfully"
       else 
         render :edit, status: :unprocessable_entity
       end
@@ -72,7 +74,7 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1 or /blogs/1.json
   def destroy
     @blog.destroy
-      redirect_to blogs_path
+      redirect_to my_blog_path
   end
 
 def id_pass
