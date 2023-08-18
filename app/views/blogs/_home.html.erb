@@ -6,6 +6,7 @@
     </form>
     <%= button_to "My Blog" , my_blog_path, method: :get  %>
     <%= button_to "Liked Blogs" , mylike_path, method: :get  %>
+    <%= button_to "Edit profile", edit_user_registration_path, method: :get %>
     <%= button_to "Log out", destroy_user_session_path, method: :delete %>
 
     <%# <button class="addnewblock"><%= link_to "My Blog" , new_blog_path  %>    
@@ -16,6 +17,7 @@
 <br>            
 <br>
 <h1 style=" text-align:center; margin-top:100px;" >Listing all Blogs</h1>
+
 <form method="get" action="">
     <select name="filter" style="background-color: transparent;">
         <option value="nil">all</option>
@@ -27,12 +29,12 @@
     </select>
     <button type="submit">submit</button>
 </form>
+
 <br>
 <br>
 <table border="3">
     <thead>
         <th>Author Name</th>
-        <th>Email</th>
         <th>Blog Title</th>
         <th>Category</th>
         <th colspan="3" >Action</th>
@@ -42,10 +44,9 @@
         <% @blog.each do |a|%>
         <tr class="row">
             <td><%= a.author %></td>
-            <td><%= a.authors_email %></td>
             <td><%= a.title %></td>
             <td><%= a.category %></td>
-            <td><%= link_to "view" , a %></td>
+            <td><%= link_to "Show more" , a %></td>
             
 
         </tr>

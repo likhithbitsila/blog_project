@@ -5,6 +5,7 @@
         <button class="btn btn-outline-success" type="submit" style="height:20px">Search</button>
     </form>
     <%= button_to "Home" , root_path , method: :get %>
+     <%= button_to "Edit profile", edit_user_registration_path, method: :get %>
     <%= button_to "Log out", destroy_user_session_path, method: :delete %>
     <%# <button class="addnewblock"><%= link_to "My Blog" , new_blog_path  %>
  

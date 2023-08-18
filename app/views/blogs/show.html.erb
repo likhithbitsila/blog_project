@@ -1,6 +1,7 @@
 <div class="for_home">
     <%= button_to "Add New Blog" , new_blog_path , method: :get  %>
     <%= button_to "Home" , root_path , method: :get %>
+    <%= button_to "Edit profile", edit_user_registration_path, method: :get %>
     <%= button_to "Log out", destroy_user_session_path, method: :delete %>
 </div>
 <h1 style="margin-top:100px;"><strong>Showing Blog Details</strong></h1>

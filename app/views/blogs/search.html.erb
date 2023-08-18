@@ -1,5 +1,9 @@
 <div class="for_home">
     <%= button_to "Add New Blog" , new_blog_path, method: :get  %>
+    <form class="d-flex" action="/search" >
+        <input class="form-control me-2" style="border-bottom:2px solid black" type="search" name="query" placeholder="Search here...." aria-label="Search" >
+        <button class="btn btn-outline-success" type="submit" style="height:20px">Search</button>
+    </form>
     <%= button_to "Home" , root_path, method: :get %>
     <%= button_to "Log out", destroy_user_session_path, method: :delete %>
 </div>
