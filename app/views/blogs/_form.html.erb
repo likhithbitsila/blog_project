@@ -7,6 +7,14 @@
       <% end %>
   <% end  %>
 
+ 
+  <br>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select(:category, options_for_select([["Tech", "Tech"],["Movies", "Movies"],["Medical","Medical"]])) %>
+  </div>
+
   <div>
     <%= form.label :author, style: "display: block" %>
     <%= form.text_field :author %>
@@ -29,7 +37,7 @@
 
   <div>
     <%= form.label :pages, style: "display: block" %>
-    <%= form.text_field :pages %>
+    <%= form.number_field :pages %>
   </div>
 
   <div>

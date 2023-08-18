@@ -133,6 +133,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:author, :authors_email, :title, :desciption, :pages, :release_date, :user_id )
+      params.require(:blog).permit(:author, :authors_email, :title, :desciption, :pages, :release_date, :user_id, :category )
     end
 end

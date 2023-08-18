@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_054434) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_17_142404) do
   create_table "blogs", force: :cascade do |t|
     t.string "author"
     t.string "authors_email"
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_054434) do
     t.integer "user_id"
     t.integer "like", default: 0
     t.integer "new_like", default: 0
+    t.string "category"
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
