@@ -18,7 +18,8 @@ class BlogsController < ApplicationController
   end
 
   def index
-    if params[:filter].nil?
+   
+    if params[:filter].nil? || params[:filter] == "nil"
       @blog = Blog.all
     else
       @blog = Blog.where(category: params[:filter])    
